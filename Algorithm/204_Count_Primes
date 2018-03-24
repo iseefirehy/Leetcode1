@@ -1,0 +1,2 @@
+204.Count Primes
+给定一个数n，求n之前所有的素数。做题思路是创建一个大小为n的boolean数组。元素默认全为false。从index为2的元素开始，只要是2的倍数而且结果小于n的所有index都在数组上标上true。他们都不是素数。因为素数的倍数不是素数。到最后，bool数组中为false对应的index都是质数

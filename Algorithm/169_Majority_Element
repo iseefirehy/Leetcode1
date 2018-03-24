@@ -1,0 +1,15 @@
+169.Majority Element
+在一个数组中出现次数超过数组length一半的元素就是majority element。可以想象这个数组如果没有两个连在一起的相同元素的话，最起码的结构应该是整个数列隔一个就是一个相同的元素。
+public int majorityElement(int[] nums) {        
+        int major = nums[0],count = 1; //第一个元素设为major，计数为1
+        for(int i =1;i < nums.length;i++){
+            if(count == 0){  //      
+                major = nums[i];
+                count++;
+            }else if(major == nums[i]){ //第一种情况，如果下一个元素就是major，那么count+1
+                count++;
+            }else count—;  //第二种情况，如果下一个元素不是major，且count不是0，现阶段major还没有换，count权重要-1
+        }
+        return major;
+    }
+其实两种情况，如果major实际个数大于长度的一半，且很大的话，那么count会每一次都加而且大于1很多，如果major实际个数正好是长度的一半的话，那么count的数量应该是1，1，1，1，1，1，1。。。直到最后。
